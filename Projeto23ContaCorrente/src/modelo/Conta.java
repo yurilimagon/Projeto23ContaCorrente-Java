@@ -53,7 +53,7 @@ public class Conta {
     
     //MÉTODOS
     public void sacar(double valor){
-        if(this.saldo >= valor)
+        if((this.saldo + this.limite) >= (valor))
         {
             this.saldo -= valor;
             System.out.println("\nValor sacado: " + valor + "\n" + "Saldo após saque: " + this.saldo);
@@ -68,7 +68,7 @@ public class Conta {
         System.out.println("\nValor depositado: " + valor + "\n" + "Saldo após depósito: " + this.saldo);
     }
     public void transferir(double valor, Conta objConta){
-        if(this.saldo >= valor)
+        if((this.saldo + this.limite) >= (valor))
         {
             sacar(valor);
             objConta.depositar(valor);
